@@ -15,6 +15,21 @@ function wordSlice({ word, totalWord }: WordSliceProps) {
     return finalWord
 }
 
+function isJsonString(str: string) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
+function getRandomArbitrary(min: number, max: number) {
+    return Math.random() * (max - min) + min;
+}
+
 export {
-    wordSlice
+    wordSlice,
+    isJsonString,
+    getRandomArbitrary
 }

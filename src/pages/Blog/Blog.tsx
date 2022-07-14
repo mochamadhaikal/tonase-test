@@ -38,9 +38,10 @@ function Blog() {
       <>
         {isLoading ? <p>Loading ...</p> : (
             <>
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between'}}>
+                <div className="flex flex-wrap justify-between">
                     {dataBlogs.data.map((item: any, index: number) => (
                         <BlogItem
+                            id={index + 1}
                             key={index}
                             title={item.title}
                             date={item.publishedAt}

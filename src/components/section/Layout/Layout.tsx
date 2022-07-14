@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useRouter } from 'next/router'
 
 import { BlogProvider } from "@context/blog";
 
@@ -11,12 +12,15 @@ interface ILayout {
     children: ReactNode
 }
 
-function Layout({children}: ILayout) {
+function Layout({ children }: ILayout) {
+    const router = useRouter();
+    const { id } = router.query;
+
     return ( 
         <div className="container px-10 py-5">
             <Navbar />
             <BlogProvider>
-                <Header />
+                {!id && <Header /> }
                 <div>
                     {children}
                 </div>
